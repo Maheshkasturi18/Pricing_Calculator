@@ -19,7 +19,8 @@ app.use(
   cors({
     origin: [
       "http://localhost:5173",
-      "https://pricing-calculator-53wn.onrender.com",
+      "https://pricing-calculator-vert.vercel.app",
+      "https://pricing-calculator-gblk3rbxg-mahesh-proj.vercel.app",
     ],
     credentials: true,
   }),
