@@ -115,9 +115,11 @@ export default function DocumentDetail() {
 
       {/* Input table */}
       <div className="mb-8">
-        <h2 className="text-xl font-semibold text-slate-900 mb-4">Document Details</h2>
-        <div className="bg-white border border-slate-200 rounded-xl shadow-sm">
-          <table className="w-full text-sm">
+        <h2 className="text-xl font-semibold text-slate-900 mb-4">
+          Document Details
+        </h2>
+        <div className="bg-white border border-slate-200 rounded-xl shadow-sm overflow-x-auto">
+          <table className="min-w-max w-full text-sm">
             <thead>
               <tr className="bg-slate-50 text-slate-500 text-xs uppercase tracking-wide">
                 <th className="text-left px-4 py-3 font-medium">Line</th>
@@ -150,15 +152,21 @@ export default function DocumentDetail() {
 
       {/* Per-line expected results */}
       <div className="mb-8">
-        <h2 className="text-xl font-semibold text-slate-900 mb-4">Per-Line Calculation Breakdown</h2>
-        <div className="bg-white border border-slate-200 rounded-xl shadow-sm">
-          <table className="w-full text-sm">
+        <h2 className="text-xl font-semibold text-slate-900 mb-4">
+          Per-Line Calculation Breakdown
+        </h2>
+        <div className="bg-white border border-slate-200 rounded-xl shadow-sm overflow-x-auto">
+          <table className="min-w-max w-full text-sm">
             <thead>
               <tr className="bg-slate-50 text-slate-500 text-xs uppercase tracking-wide">
                 <th className="text-left px-4 py-3 font-medium">Line</th>
                 <th className="text-left px-4 py-3 font-medium">Subtotal</th>
-                <th className="text-left px-4 py-3 font-medium">Discount amount</th>
-                <th className="text-left px-4 py-3 font-medium">After discount</th>
+                <th className="text-left px-4 py-3 font-medium">
+                  Discount amount
+                </th>
+                <th className="text-left px-4 py-3 font-medium">
+                  After discount
+                </th>
                 <th className="text-left px-4 py-3 font-medium">Tax amount</th>
                 <th className="text-left px-4 py-3 font-medium">Line total</th>
               </tr>
@@ -174,7 +182,9 @@ export default function DocumentDetail() {
                     <td className="px-4 py-3">{money(li.discountAmount)}</td>
                     <td className="px-4 py-3">{money(afterDiscount)}</td>
                     <td className="px-4 py-3">{money(li.taxAmount)}</td>
-                    <td className="px-4 py-3 font-medium">{money(li.lineTotal)}</td>
+                    <td className="px-4 py-3 font-medium">
+                      {money(li.lineTotal)}
+                    </td>
                   </tr>
                 );
               })}
@@ -185,9 +195,11 @@ export default function DocumentDetail() {
 
       {/* Document expected totals */}
       <div className="mb-8">
-        <h2 className="text-xl font-semibold text-slate-900 mb-4">Document Totals Summary</h2>
-        <div className="bg-white border border-slate-200 rounded-xl shadow-sm max-w-3xl">
-          <table className="w-full text-sm">
+        <h2 className="text-xl font-semibold text-slate-900 mb-4">
+          Document Totals Summary
+        </h2>
+        <div className="bg-white border border-slate-200 rounded-xl shadow-sm max-w-3xl overflow-x-auto">
+          <table className="min-w-max w-full text-sm">
             <thead>
               <tr className="bg-slate-50 text-slate-500 text-xs uppercase tracking-wide">
                 <th className="text-left px-4 py-3 font-medium">Field</th>
@@ -200,14 +212,18 @@ export default function DocumentDetail() {
                 <td className="px-4 py-3">Subtotal</td>
                 <td className="px-4 py-3">{money(doc.totals.subtotal)}</td>
                 <td className="px-4 py-3 text-slate-600">
-                  {doc.lineItems.map((li) => money(li.quantity * li.unitPrice)).join(" + ")}
+                  {doc.lineItems
+                    .map((li) => money(li.quantity * li.unitPrice))
+                    .join(" + ")}
                 </td>
               </tr>
               <tr className="border-t border-slate-100">
                 <td className="px-4 py-3">Total discount</td>
                 <td className="px-4 py-3">{money(doc.totals.totalDiscount)}</td>
                 <td className="px-4 py-3 text-slate-600">
-                  {doc.lineItems.map((li) => money(li.discountAmount)).join(" + ")}
+                  {doc.lineItems
+                    .map((li) => money(li.discountAmount))
+                    .join(" + ")}
                 </td>
               </tr>
               <tr className="border-t border-slate-100">
@@ -219,9 +235,14 @@ export default function DocumentDetail() {
               </tr>
               <tr className="border-t border-slate-100 bg-slate-50">
                 <td className="px-4 py-3 font-semibold">Grand total</td>
-                <td className="px-4 py-3 font-semibold">{money(doc.totals.grandTotal)}</td>
+                <td className="px-4 py-3 font-semibold">
+                  {money(doc.totals.grandTotal)}
+                </td>
                 <td className="px-4 py-3 text-slate-600">
-                  {doc.lineItems.map((li) => money(li.lineTotal)).join(" + ")} ( {money(doc.totals.subtotal)} − {money(doc.totals.totalDiscount)} + {money(doc.totals.totalTax)} )
+                  {doc.lineItems.map((li) => money(li.lineTotal)).join(" + ")} ({" "}
+                  {money(doc.totals.subtotal)} −{" "}
+                  {money(doc.totals.totalDiscount)} +{" "}
+                  {money(doc.totals.totalTax)} )
                 </td>
               </tr>
             </tbody>

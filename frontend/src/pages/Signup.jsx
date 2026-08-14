@@ -24,7 +24,7 @@ export default function Signup() {
 
   return (
     <div className="min-h-[calc(100vh-58px)] flex items-center justify-center bg-slate-50 px-4">
-      <div className="w-full max-w-sm bg-white border border-slate-200 rounded-2xl shadow-sm p-8">
+      <div className="w-full max-w-sm bg-white border border-slate-200 rounded-2xl shadow-sm p-6 sm:p-8">
         <h1 className="text-xl font-semibold text-slate-900 mb-1">Sign up</h1>
         <p className="text-sm text-slate-500 mb-6">
           Create an account to get started.

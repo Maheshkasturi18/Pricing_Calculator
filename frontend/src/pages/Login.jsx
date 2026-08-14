@@ -24,15 +24,20 @@ export default function Login() {
 
   return (
     <div className="min-h-[calc(100vh-58px)] flex items-center justify-center bg-slate-50 px-4">
-      <div className="w-full max-w-sm bg-white border border-slate-200 rounded-2xl shadow-sm p-8">
+      <div className="w-full max-w-sm bg-white border border-slate-200 rounded-2xl shadow-sm p-6 sm:p-8">
         <h1 className="text-xl font-semibold text-slate-900 mb-1">Log in</h1>
-        <p className="text-sm text-slate-500 mb-6">Welcome back — enter your details below.</p>
+        <p className="text-sm text-slate-500 mb-6">
+          Welcome back — enter your details below.
+        </p>
 
         <form onSubmit={handleSubmit} className="flex flex-col gap-4">
           <label className="flex flex-col gap-1.5 text-sm font-medium text-slate-700">
             Email
             <div className="relative">
-              <FiMail className="absolute left-3 top-1/2 -translate-y-1/2 text-slate-400" size={16} />
+              <FiMail
+                className="absolute left-3 top-1/2 -translate-y-1/2 text-slate-400"
+                size={16}
+              />
               <input
                 type="email"
                 value={email}
@@ -47,7 +52,10 @@ export default function Login() {
           <label className="flex flex-col gap-1.5 text-sm font-medium text-slate-700">
             Password
             <div className="relative">
-              <FiLock className="absolute left-3 top-1/2 -translate-y-1/2 text-slate-400" size={16} />
+              <FiLock
+                className="absolute left-3 top-1/2 -translate-y-1/2 text-slate-400"
+                size={16}
+              />
               <input
                 type={showPassword ? "text" : "password"}
                 value={password}
@@ -80,7 +88,10 @@ export default function Login() {
 
         <p className="text-sm text-slate-500 mt-6 text-center">
           No account?{" "}
-          <Link to="/signup" className="text-indigo-600 hover:text-indigo-700 font-medium">
+          <Link
+            to="/signup"
+            className="text-indigo-600 hover:text-indigo-700 font-medium"
+          >
             Sign up
           </Link>
         </p>

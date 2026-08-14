@@ -137,8 +137,8 @@ export default function Report() {
           )}
 
           {/* table */}
-          <div className="bg-white border border-slate-200 rounded-xl overflow-hidden shadow-sm">
-            <table className="w-full text-sm">
+          <div className="bg-white border border-slate-200 rounded-xl overflow-x-auto shadow-sm">
+            <table className="min-w-max w-full text-sm">
               <thead>
                 <tr className="bg-slate-50 text-slate-500 text-xs uppercase tracking-wide">
                   <th className="text-left px-4 py-3 font-medium">Sr No.</th>
