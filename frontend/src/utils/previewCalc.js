@@ -10,7 +10,10 @@ export function previewLine(line) {
   let discountCents = 0;
 
   if (line.discountType === "percent") {
-    const percentValue = Math.max(0, Math.min(100, Number(line.discountValue || 0)));
+    const percentValue = Math.max(
+      0,
+      Math.min(100, Number(line.discountValue || 0)),
+    );
     discountCents = Math.round((subtotalCents * percentValue) / 100);
   } else if (line.discountType === "fixed") {
     const fixedValue = dectoInt(line.discountValue || 0);
@@ -44,7 +47,12 @@ export function previewDocument(lineItems) {
       acc.grandTotalCents += Math.round(l.lineTotal * 100);
       return acc;
     },
-    { subtotalCents: 0, totalDiscountCents: 0, totalTaxCents: 0, grandTotalCents: 0 },
+    {
+      subtotalCents: 0,
+      totalDiscountCents: 0,
+      totalTaxCents: 0,
+      grandTotalCents: 0,
+    },
   );
 
   return {
