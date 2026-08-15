@@ -16,12 +16,12 @@ import Report from "./pages/Report";
 import "./App.css";
 
 function ProtectedRoute() {
-  const { user } = useAuth();
-  if (user === undefined)
+  const { user , authChecking} = useAuth();
+  if (authChecking)
     return (
       <div className="max-w-5xl mx-auto px-6 py-8 text-slate-500">Loading…</div>
     );
-  if (user === null) return <Navigate to="/login" replace />;
+  if (!user) return <Navigate to="/login" replace />;
   return <Outlet />;
 }
 

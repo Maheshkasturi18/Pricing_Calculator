@@ -12,13 +12,21 @@ const AuthContext = createContext(null);
 export function AuthProvider({ children }) {
   const [user, setUser] = useState(undefined); // undefined = loading, null = logged out
   const [error, setError] = useState(null);
+  const [authChecking, setAuthChecking] = useState(true);
 
   const refresh = useCallback(async () => {
     try {
       const data = await api.get("/auth/me");
-      setUser(data.user);
+      if (data.user) {
+        setUser(data.user);
+        window.alert("Session restored. Welcome back!");
+      } else {
+        setUser(null);
+      }
     } catch {
       setUser(null);
+    } finally {
+      setAuthChecking(false);
     }
   }, []);
 
@@ -57,7 +65,9 @@ export function AuthProvider({ children }) {
   };
 
   return (
-    <AuthContext.Provider value={{ user, error, login, signup, logout }}>
+    <AuthContext.Provider
+      value={{ user, error, login, signup, logout, authChecking }}
+    >
       {children}
     </AuthContext.Provider>
   );
